@@ -44,11 +44,11 @@ class IntersectionCheckNode(Node):
                 )
                 
                 if not self.intersection_detected:
-                    self.get_logger().info(
-                        f'교차로 감지됨! 거리: {self.intersection_distance:.2f}m, '
-                        f'오프셋: ({self.intersection_offset_x:.2f}, {self.intersection_offset_y:.2f})'
-                    )
-                    if self.intersection_distance < 1:
+                    # self.get_logger().info(
+                    #     f'교차로 감지됨! 거리: {self.intersection_distance:.2f}m, '
+                    #     f'오프셋: ({self.intersection_offset_x:.2f}, {self.intersection_offset_y:.2f})'
+                    # )
+                    if self.intersection_distance < 2:
                         self.intersection_point_pub.publish(Point(x=self.intersection_offset_x, y=self.intersection_offset_y))
             else:
                 if self.intersection_detected:
