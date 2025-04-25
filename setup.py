@@ -24,9 +24,7 @@ setup(
     entry_points={
         'console_scripts': [
             'action_control_node = action_control.action_control_node:main',
-            'action_controller_node = action_control.action_controller_node:main',
-            'mission_example_node = action_control.mission_example:main',
-            'intersection_handler_node = action_control.intersection_handler:main',
+            'intersection_check_node = action_control.intersection_check_node:main',
         ],
     },
 )

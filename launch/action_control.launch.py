@@ -51,10 +51,20 @@ def generate_launch_description():
     )
     
     # 교차로 처리 노드 실행
-    intersection_handler_node = Node(
+    action_control_node = Node(
         package='action_control',
-        executable='intersection_handler_node',
-        name='intersection_handler_node',
+        executable='action_control_node',
+        name='action_control_node',
+        output='screen',
+        parameters=[{
+            'use_sim_time': True,
+        }],
+    )
+    
+    intersection_check_node = Node(
+        package='action_control',
+        executable='intersection_check_node',
+        name='intersection_check_node',
         output='screen',
         parameters=[{
             'use_sim_time': True,
@@ -65,5 +75,6 @@ def generate_launch_description():
         line_trace_server,
         move_robot_server,
         rotate_robot_server,
-        intersection_handler_node,
+        action_control_node,
+        intersection_check_node,
     ])
